@@ -41,6 +41,10 @@ class SudokuGame
     pos
   end
 
+  def parse_pos(user_input) # "0,1"
+    user_input.split(",").map(&:to_i)
+  end
+
   def get_val
     val = nil
     until val && valid_val?(val)
@@ -49,6 +53,10 @@ class SudokuGame
       val = parse_val(gets.chomp)
     end
     val
+  end
+
+  def parse_val(user_input)
+    user_input.to_i
   end
 
   def play_turn
